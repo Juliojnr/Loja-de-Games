@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { User } from "src/user/entities/user.entity";
 import { DeleteResult, ILike, Repository } from "typeorm";
 import { Product } from "../entities/product.entity";
 
@@ -13,7 +14,8 @@ export class ProductService {
     async findAll(): Promise<Product[]> {
         return await this.productRepository.find({
             relations: {
-                category: true
+                category: true,
+                user: true
             }
         })
     }
@@ -25,7 +27,8 @@ export class ProductService {
                 id
             },
             relations: {
-                category: true
+                category: true,
+                user: true
             }
         })
 
@@ -40,7 +43,8 @@ export class ProductService {
                 name: ILike (`%${name}%`)
             },
             relations: {
-                category: true
+                category: true,
+                user: true
             }
         })
     }

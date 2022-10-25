@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Module, Param, Par
 import { Category } from "../entities/category.entity";
 import { CategoryService } from "../service/category.service";
 
-@Controller('/:category')
+@Controller('/category')
 export class CategoryController {
     constructor(private readonly categoryService: CategoryService) {}
 
